@@ -1,0 +1,48 @@
+一、
+# 家目录添加用户
+useradd wang
+
+# 指定目录/hoom/test下添加用户tao
+useradd -d /hoom/test tao
+
+#  给用户wang创建密码（一定要指定用户！）
+passwd wang XXXX
+# 显示当前用户所在目录
+pwd
+
+# 在保存家目录下删除用户(boot)
+userdel wang
+
+# 删除家目录及用户
+userdel -r wang
+
+# 查询root用户id
+id root
+
+# 切换用户到tao
+su - tao
+
+# 退出当前用户/切换用户 直至退出系统
+logout
+或
+exit
+
+# 查看当前用户
+whoami
+或 who am i
+
+二、用户组
+# 创建/删除一个dizhi组
+groupadd dizhi
+groupdel dizhi
+
+# 移动wang用户到dizhi组
+usermod -g dizhi wang
+
+# 同时创建用户wt并放到xueshu组
+groupadd xueshu
+useradd -g xueshu wt
+
+# /etc/passwd 用户的配置文件
+# /etc/shadow 口令的配置文件
+# /etc/group 组的配置文件
