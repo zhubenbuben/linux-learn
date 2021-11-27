@@ -1,0 +1,144 @@
+# 运行级别：0：关机；1：单用户（找回丢失密码）；2：多用户无网络；3：多用户有网络，无图形界面；4：系统未使用；5：图形界面；6：系统重启
+init 0
+init 3
+init 5
+init 6
+# 查看当前运行级别
+systemctl get-default
+# 设置运行级别为3  multi-user.target(多用户有网络)/graphical.target(图形界面)
+systemctl set-default multi-user.target
+
+# 找回用户密码
+开机界面输入“e”，然后再下一个界面将光标定位到“linuxx16 /vilinuz-3.10.0-957.el7.x86_64 root......uft-8”后面输入"init=/bin/sh"然后按ctrl+x进入单客户模式，输入：mount -o remount,rw /回车；键入passwd回车，输入密码，再次输入密码，接着输入touch /.autorelable回车；输入：exec /sbin/init回车后等待
+
+# 帮助指令
+
+# 获取ls的帮助指令
+main ls
+
+ls-al/root
+help shell
+
+# 文件目录类指令
+
+# 显示当前绝对路径
+pwd
+
+ls
+ls -a
+ls -l
+ls -al
+ls -lh(可以显示文件大小)
+
+# 打开文件
+cd
+# 打开家目录
+cd ~
+# 返回上一级目录
+cd ..
+
+# 创建目录
+mkdir
+# 创建多级目录
+mkdir -p /home/a/b
+# 删除空目录
+rmdir
+# 删除非空目录
+rm -rf/home/a/
+
+# 创建空文件
+touch 1.txt
+
+# 把1.txt拷贝到a目录
+cp 1.txt a/
+# home目录下的a目录拷贝到home外的目录opt内（递归）
+cp -r /home/a/ /opt/
+# 强制拷贝所有
+\cp -r /home/a/ /opt/
+
+# 移除文件或目录
+rm
+rm -r
+# 强制删除
+rm -f
+rm -rf
+
+# 移动目录与文件或重命名
+mv 1.txt 2.txt
+mv 1.txt /root/2.txt
+mv /home/a/ /root/
+# 查看文件且显示行号
+cat -n 1.txt
+
+# 分屏查看（适用于大文件）空格键或pagedown->向下翻动一页；pageup->向上翻动一页；/字符串->向下搜寻字符，n向下，N向上；？字符串->向上搜寻；q->退出less
+less 1.txt
+
+# 输出内容到控制台
+echo
+
+# 显示文件开头前5行(默认显示10行)
+head -n 5 1.txt
+# 显示文件末尾5行（默认显示10行）
+tail -n 5 1.txt
+
+# 实时监控某文件的改动 ctrl+c 退出
+tail -f 1.txt
+
+# 输出重定向(覆盖写入)
+>
+# 追加
+>>
+
+# 在当前目录给其他目录文件(root)创建一个链接(myroot)
+ln -s /root/ myroot
+
+# 查看最近执行的10条历史命令
+history 10
+
+# 重新执行第十条历史命令
+!10
+
+
+时间日期类指令
+
+# 显示时间
+date
+date+%Y
+date+%m
+date+%d
+adte"+%Y-%m-%d%H:%M:%S"
+
+# 设置时间
+date -s "2021-11-27 21:10:20"
+
+# 日历
+cal
+cal 2021
+
+
+
+# 查找指令
+
+# 按照名字查找
+find /home -name *.txt
+# 按照用户名root查找
+find /opt -user root
+# 按照文件大小(+大于，-小于，=等于；单位：M，K，G)
+find / -size +200M
+
+# 快速定位文件位置
+updatedb
+locate 1.txt
+# 查看ls指令存放位置
+which ls
+
+# 搜索查找类
+
+# 过滤查找
+grep "1.txt"
+cat 1.txt | grep "123"
+cat /home/1.txt | grep -n "123"
+=
+grep -n "yes" /home/1.txt
+
+
