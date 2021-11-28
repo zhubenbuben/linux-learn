@@ -1,0 +1,30 @@
+# 压缩与解压文件
+gzip /home/1.txt
+gunzip 1.txt.gz
+
+# 压缩与解压目录
+zip -r myhome.zip/home/
+unzip -d/opt/tmp/home/myhome.zip
+# 打包压缩
+# -c 产生.tar打包文件
+# -x 解包.tar文件
+tar
+# 压缩
+tar -zcvf pc.tar.gz /home/1.txt/home/2.txt
+tar -zcvf myhome.tar.gz /home
+# 解压
+tar -zxvf pc.tar.gz
+tar -zxvf /home/myhome.tar.gz -C /opt/tmp/
+
+
+#linux组
+
+# 查看文件所有者
+ls -ahl
+# 修改文件所有者
+chown w 1.txt
+# 创建组
+groupadd monster
+
+useradd -g monster t
+
